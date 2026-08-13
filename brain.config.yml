@@ -1,0 +1,47 @@
+# brain.config.yml — team brain configuration.
+# The /brain-open, /brain-close, /brain-ingest-notion and /brain-scan-repo
+# skills read this file. Changing team/tracker/areas happens HERE, not by
+# editing the skills.
+
+vault:
+  name: team-brain            # readable name of the brain
+  path: .                     # vault path relative to the session cwd
+  language: en
+
+tracker:
+  provider: linear            # linear | none (if none, skills list actionables in chat)
+  teams:
+    default: "<YOUR-LINEAR-TEAM>"   # where items go unless routed below
+    # Optional per-area routing — items inherit the team of their area:
+    # by_area:
+    #   fe: "<TEAM-A>"
+    #   be: "<TEAM-B>"
+    #   product: "<TEAM-C>"
+  labels:
+    task: task
+    decision_pending: decision-pending
+    blocked: blocked
+  # Product-decisions feed doc for the PM (optional; empty = disabled)
+  product_decisions_doc: ""
+
+areas: [fe, be, product, cross, infra]
+
+notion:
+  subscriptions_file: sources/notion/SUBSCRIPTIONS.yml
+  snapshots_dir: sources/notion
+
+repos:
+  # Code repositories the brain knows about — the team-shared IDENTITY of
+  # each repo (name, git remote, vault page). Local clone paths do NOT go
+  # here: they differ per machine and live in brain.config.local.yml
+  # (git-ignored; see brain.config.local.example.yml).
+  #
+  # Path resolution order used by the skills:
+  #   1. brain.config.local.yml → repos.<name>.path
+  #   2. convention: ../<name> (sibling of the vault)
+  #   3. ask the user, offer to save the answer into the local config
+  #
+  # - name: api-core
+  #   remote: git@github.com:your-org/api-core.git   # machine-independent identifier
+  #   page: repos/api-core.md
+  scan_questions_to: decisions   # the scan's "unanswered questions" are proposed as candidates here

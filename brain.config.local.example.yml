@@ -1,0 +1,12 @@
+# brain.config.local.yml — PER-MACHINE settings. Git-ignored.
+#
+# Copy this file to brain.config.local.yml and fill in YOUR local clone
+# paths. You only need an entry for repos that are NOT cloned as siblings
+# of the vault (the skills try ../<name> by default). The skills can also
+# create/update this file for you when they ask for a path.
+
+repos: {}
+  # api-core:
+  #   path: ~/work/clones/api-core
+  # payments-service:
+  #   path: /Users/you/dev/payments-service

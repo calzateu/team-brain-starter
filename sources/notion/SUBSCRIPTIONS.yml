@@ -1,0 +1,20 @@
+# SUBSCRIPTIONS.yml — Notion pages the brain follows.
+#
+# Rule: CURATED sync, not a full mirror. Adding a doc here is a deliberate
+# act. Only product/business content suitable for everyone with access to
+# this repo (see CLAUDE.md §8 — sensitivity rule: no identifiable customer
+# data, no PII, no HR/legal/financial material). When in doubt, don't
+# subscribe.
+#
+# /brain-ingest-notion walks this list, compares last_edited_time against the
+# latest snapshot in sources/notion/, and proposes re-ingesting what changed.
+
+subscriptions: []
+  # - slug: prd                      # short name → files YYYY-MM-DD_prd.md
+  #   notion_url: https://notion.so/...
+  #   summary_page: product/prd-summary.md   # Layer 2 page that gets regenerated
+  #   notes: "Main product PRD"
+  #
+  # - slug: icp
+  #   notion_url: https://notion.so/...
+  #   summary_page: product/icp-summary.md
